@@ -85,9 +85,17 @@ class HomeAssistant
       items: entities.map do |entity|
         entity_type = entity['entity_id'].split('.').first
         icon = "#{entity_type}-#{entity['state']}.png"
+        subtitle = "switched #{entity['state']}"
+        if entity_type == 'light' && entity['state'] == 'on'
+          current_brightness = entity['attributes']['brightness'].to_i
+          current_brightness_percent = (current_brightness / 255.0 * 100).to_i
+          subtitle += ", brightness: #{current_brightness_percent}%"
+        end
+
         {
           uid: entity['entity_id'],
           title: entity['attributes']['friendly_name'],
+          subtitle: subtitle,
           arg: "#{entity['entity_id']} #{brightness}",
           icon: {
             path: "icons/#{icon}"
