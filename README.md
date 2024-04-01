@@ -1,6 +1,14 @@
-# Home Assistant Workflow for Alfred
+# Home Assistant Lights and Switches for Alfred
 
 This Alfred workflow allows you to interact with your Home Assistant instance directly from Alfred. You can quickly toggle lights, switches, and other entities, as well as adjust brightness levels for lights.
+
+![Screenshot](screenshot.png)
+
+## Why?
+
+There is an [existing workflow](https://github.com/Skakiz/Alfred-Home-assistant-workflow) created by @Skakiz. It was [forked](https://github.com/s00500/Alfred-Home-assistant-workflow/tree/2.0.0) to support long-lived access tokens, which are now required. However, it uses Python 2 and would need changes to work in modern environments using Python 3. 
+
+I'm not great with Python. In addition, all that I require is a simple and quick way to toggle lights and switches. Therefore, I decided to write a quick replacement in Ruby.
 
 ## Features
 
@@ -10,7 +18,7 @@ This Alfred workflow allows you to interact with your Home Assistant instance di
 
 ## Installation
 
-1. Download the workflow file from the [releases page](https://example.com/releases).
+1. Download the workflow file from the [releases page](https://github.com/vincentezw/alfred-homeassistant/releases/).
 2. Double-click the downloaded file to import it into Alfred.
 3. Configure the workflow by clicking the "configure" keyword and entering your Home Assistant instance URL and access token.
 
@@ -41,5 +49,5 @@ This Alfred workflow allows you to interact with your Home Assistant instance di
 
 ## Feedback
 
-If you encounter any issues or have suggestions for improvement, please [open an issue](https://example.com/issues) on GitHub.
+If you encounter any issues or have suggestions for improvement, please [open an issue](https://github.com/vincentezw/alfred-homeassistant/issues) on GitHub. PRs are also welcome.
 
