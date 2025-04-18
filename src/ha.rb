@@ -49,7 +49,7 @@ class HomeAssistant
     body[:brightness] = brightness if !brightness.nil? && entity_id.start_with?('light')
     request.body = body.to_json
 
-    response = Net::HTTP.start(uri.hostname, uri.port) do |http|
+    response = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => uri.scheme == 'https') do |http|
       http.request(request)
     end
 
@@ -68,7 +68,7 @@ class HomeAssistant
     request = Net::HTTP::Get.new(uri)
     request['Authorization'] = "Bearer #{access_token}"
 
-    response = Net::HTTP.start(uri.hostname, uri.port) do |http|
+    response = Net::HTTP.start(uri.hostname, uri.port, :use_ssl => uri.scheme == 'https') do |http|
       http.request(request)
     end
 
